@@ -119,5 +119,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'static')
+]
 
-MEAID
+#配置文件上传
+MEAID_ROOT = 'medias'
+MEAID_URL = '/medias/'
