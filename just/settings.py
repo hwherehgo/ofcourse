@@ -126,3 +126,38 @@ STATICFILES_DIRS = [
 #配置文件上传
 MEAID_ROOT = 'medias'
 MEAID_URL = '/medias/'
+
+##a使用cache 储存session
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+
+#a添加缓存配置
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "PICKLE_VERSION": -1,
+        }
+    }
+}
+##Redis配置
+REDIS = {
+    'host':'localhost',
+    'port':6379,
+    'db':1,
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+

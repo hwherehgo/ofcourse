@@ -14,5 +14,5 @@ class Userform(ModelForm):
 
     def clean_password2(self):
         cleaned_data = super().clean()
-        if cleaned_data['password']!=cleaned_data['password2']
+        if cleaned_data['password']!=cleaned_data['password2']:
             raise ValidationError('两次密码不正确')

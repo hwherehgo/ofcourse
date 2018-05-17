@@ -1,9 +1,15 @@
 from django.shortcuts import render,redirect
 from .models import Post
 from math import ceil
+from .helpers import page_cache
+from .helpers import read_count
+from .helpers import get_top_n
 # Create your views here.
 
 
+
+@read_count
+@page_cache(2)
 def read(request):
     post_id = request.GET.get('post_id')
     data = Post.objects.get(id=post_id)
@@ -52,3 +58,7 @@ def post_list(request):
 
     return render(request,'post_list.html',{'posts':posts,'pages':pages})
 
+def rank_top(request):
+
+    data = get_top_n(10)
+    return render(request,'top10.html',{'data':data})
